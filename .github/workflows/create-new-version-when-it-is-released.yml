@@ -1,0 +1,71 @@
+﻿# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
+name: Monitor API version and generate new client
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  compare-versions:
+    runs-on: ubuntu-latest
+    outputs:
+      api_version: ${{ steps.fetch-api-version.outputs.api_version }}
+      updated: >-
+        ${{ ! startsWith(steps.fetch-version.outputs.package_version, steps.fetch-api-version.outputs.api_version) }}
+    steps:
+      - name: Fetch latest NPM package version
+        id: fetch-version
+        run: |
+          http_content=$(curl -s https://registry.npmjs.org/jikan-api-lightweight-client/latest)
+          version=$(echo $http_content | jq -r '.version')
+          echo "package_version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch latest Jikan API version
+        id: fetch-api-version
+        run: |
+          http_content=$(curl -s https://raw.githubusercontent.com/jikan-me/jikan-rest/master/storage/api-docs/api-docs.json)
+          version=$(echo $http_content | jq -r '.info.version')
+          echo "api_version=$version" >> "$GITHUB_OUTPUT"
+
+  update-submodule:
+    runs-on: ubuntu-latest
+    needs: compare-versions
+    if: ${{ needs.compare-versions.outputs.updated == 'true' }}
+    steps:
+      - name: Checkout the generator repository
+        uses: actions/checkout@v3
+        with:
+          repository: 'HRAshton/jikan-api-lightweight-client-generator'
+          path: generator
+
+      - name: Generate the client
+        working-directory: ./generator
+        run: |
+          npm clean-install
+          npm start
+
+      - name: Checkout the client repository
+        uses: actions/checkout@v3
+        with:
+          path: client
+
+      - name: Update the client
+        working-directory: ./client
+        run: |
+          cp -r ../generator/output/* ./src/
+          npm version "${{ needs.compare-versions.outputs.api_version }}" --no-git-tag-version
+
+      - name: Create Pull Request with current (uncommitted) changes
+        uses: peter-evans/create-pull-request@v7
+        with:
+          path: ./client
+          commit-message: "Support API v${{ needs.compare-versions.outputs.api_version }}"
+          title: "Support API v${{ needs.compare-versions.outputs.api_version }}"
+          body: "This PR updates the client to version ${{ needs.compare-versions.outputs.api_version }}."
+          branch: "new_version/${{ needs.compare-versions.outputs.api_version }}"
