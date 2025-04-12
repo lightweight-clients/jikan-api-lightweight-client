@@ -25,7 +25,6 @@ jobs:
       - name: Fetch latest NPM package version
         id: fetch-released-version
         run: |
-          echo "version=0.0.1" >> "$GITHUB_OUTPUT" && exit 0
           http_content=$(curl -s https://registry.npmjs.org/jikan-api-lightweight-client/latest)
           version=$(echo $http_content | jq -r '.version')
           echo "version=$version" >> "$GITHUB_OUTPUT"
