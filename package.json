@@ -1,6 +1,6 @@
 {
   "name": "jikan-api-lightweight-client",
-  "version": "0.0.0-0",
+  "version": "4.0.0",
   "description": "Lightweight Jikan API client. Exports only minimal Fetch call. Fully compatible with AWS LLRT.",
   "keywords": [
     "anime",
