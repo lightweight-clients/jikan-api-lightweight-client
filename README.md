@@ -18,7 +18,7 @@ import { getRandomAnime, getAnimeById, getAnimeSearch } from 'jikan-api-lightwei
 
 const randomAnime = await getRandomAnime();
 
-const cowboyBebop = await getAnimeById(1);
+const cowboyBebop = await getAnimeById({ id: 1 });
 
 const allCowboyBebop = await getAnimeSearch({
     q: 'Cowboy Bebop',
