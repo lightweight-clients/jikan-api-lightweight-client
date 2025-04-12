@@ -1,0 +1,44 @@
+{
+    "name": "jikan-api-lightweight-client",
+    "version": "0.0.1",
+    "description": "Lightweight Jikan API client. Exports only minimal Fetch call. Fully compatible with AWS LLRT.",
+    "keywords": [
+        "jikan.moe",
+        "MAL",
+        "MyAnimeList",
+        "fetch",
+        "llrt",
+        "async",
+        "lightweight",
+        "no-deps"
+    ],
+    "main": "src/index.ts",
+    "files": [
+        "src"
+    ],
+    "scripts": {
+        "lint": "eslint .",
+        "test": "node ./node_modules/jest/bin/jest.js --runInBand"
+    },
+    "type": "module",
+    "author": "HRAshton",
+    "license": "MIT",
+    "homepage": "https://github.com/HRAshton/jikan-api-lightweight-client",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/HRAshton/jikan-api-lightweight-client.git"
+    },
+    "bugs": {
+        "url": "https://github.com/HRAshton/jikan-api-lightweight-client/issues"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.14",
+        "@typescript-eslint/eslint-plugin": "^8.29.1",
+        "@typescript-eslint/parser": "^8.29.1",
+        "eslint": "^9.24.0",
+        "jest": "^29.7.0",
+        "ts-jest": "^29.3.1",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3"
+    }
+}
