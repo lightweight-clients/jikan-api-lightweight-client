@@ -1,15 +1,19 @@
 ﻿import { getAnimeById, getAnimeSearch, getRandomAnime } from '../src';
 
 describe('requests integration tests', () => {
+    let originalFetch: typeof global.fetch;
+
     beforeAll(() => {
-        const baseFetch = global.fetch;
+        originalFetch = global.fetch;
         global.fetch = jest.fn((url) => {
             console.log('fetch called with URL:', url.toString());
-            return baseFetch(url);
+            return originalFetch(url);
         });
-    })
+    });
 
-    test('should call a method with no args', async () => {
+    afterAll(() => {
+        global.fetch = originalFetch;
+    });
         const response = await getRandomAnime();
 
         console.log(response);
