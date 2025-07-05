@@ -1,20 +1,21 @@
-﻿import { client_setBaseUrl, client_setFetch, getAnimeNews, getAnimeSearch, getRandomAnime } from '../src';
+﻿import { describe, test, expect, vi, beforeEach } from 'vitest';
+import { client_setBaseUrl, client_setFetch, getAnimeNews, getAnimeSearch, getRandomAnime } from '../src';
 
 describe('client setup tests', () => {
-    const fetchMock = global.fetch = jest.fn(url => {
+    const fetchMock = global.fetch = vi.fn(url => {
         console.log('fetch called', String(url));
         return Promise.resolve({
             json: () => Promise.resolve({}),
         });
-    }) as jest.Mock;
+    }) as unknown as typeof global.fetch;
 
-    beforeEach(() => jest.clearAllMocks());
+    beforeEach(() => vi.clearAllMocks());
 
     test('should correctly build URL', async () => {
         const ANIME_ID = 123;
-        await getAnimeNews({ id: ANIME_ID });
+        await getAnimeNews(ANIME_ID);
         expect(fetchMock).toHaveBeenCalledWith(
-            new URL(`https://api.jikan.moe/v4/anime/${ANIME_ID}/news?id=${ANIME_ID}`),
+            new URL(`https://api.jikan.moe/v4/anime/${ANIME_ID}/news`),
         );
     });
 
@@ -28,7 +29,7 @@ describe('client setup tests', () => {
             q: 'Cowboy Bebop',
             limit: 3,
             page: 2,
-            orderBy: 'mal_id',
+            order_by: 'mal_id',
             sort: 'asc',
         });
 
@@ -45,12 +46,12 @@ describe('client setup tests', () => {
     });
 
     test('should set custom fetch', async () => {
-        const args = { id: 123 };
-        const customClient = jest.fn();
+        const animeId = 123;
+        const customClient = vi.fn();
         client_setFetch(customClient);
 
-        await getAnimeNews(args);
+        await getAnimeNews(animeId);
 
-        expect(customClient).toHaveBeenCalledWith('anime/123/news', args);
+        expect(customClient).toHaveBeenCalledWith('anime/123/news');
     });
 });
