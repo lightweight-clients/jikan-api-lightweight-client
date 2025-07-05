@@ -6,6 +6,26 @@ and no migration is needed.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.0.1
+
+The package has been renamed from jikan-api-lightweight-client to @lightweight-clients/jikan-api-lightweight-client.
+
+### How to upgrade
+
+- Update the package name in your package.json file.
+
+Details:
+
+- The package now has a new version of the generator.
+- The new version uses typed imports.
+- The types.ts file saves as is, without any changes (except for formatting).
+- Customized types are now exported from the `simple-types` module.
+- Content of the `simple-types` module is now exported from the main module.
+- Simple-types module preserves the same naming convention as before.
+- GitHub Actions workflow now uses schemas from the `lightweight-clients/schemas` project.
+- A new version of the schema is used. There are slightly different types for the `promos` method.
+
+
 ## 4.0.0.0
 
 Initial release of the new version 4.0.0.

@@ -3,51 +3,64 @@
 name: Monitor API version and generate new client
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 1'
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force update the client even if the API version is up to date.'
+        required: false
+        default: 'false'
+        type: boolean
 
 permissions:
   contents: write
   pull-requests: write
+
+env:
+  package_name: jikan-api-lightweight-client
+  schema_registry_url: https://raw.githubusercontent.com/lightweight-clients/schemas/refs/heads/master/schemas.json
+  schema_name: jikan-api
 
 jobs:
   compare-versions:
     runs-on: ubuntu-latest
     outputs:
       api_version: ${{ steps.fetch-api-version.outputs.api_version }}
-      updated: >-
-        ${{ ! startsWith(steps.fetch-version.outputs.package_version, steps.fetch-api-version.outputs.api_version) }}
+      up_to_date: >-
+        ${{ startsWith(steps.fetch-version.outputs.package_version, steps.fetch-api-version.outputs.api_version) }}
     steps:
       - name: Fetch latest NPM package version
         id: fetch-version
         run: |
-          http_content=$(curl -s https://registry.npmjs.org/jikan-api-lightweight-client/latest)
+          # Fetch the latest version of the NPM package
+          http_content=$(curl -s https://registry.npmjs.org/$package_name/latest)
           version=$(echo $http_content | jq -r '.version')
           echo "package_version=$version" >> "$GITHUB_OUTPUT"
 
-      - name: Fetch latest Jikan API version
+      - name: Fetch latest API version
         id: fetch-api-version
         run: |
-          http_content=$(curl -s https://raw.githubusercontent.com/jikan-me/jikan-rest/master/storage/api-docs/api-docs.json)
-          version=$(echo $http_content | jq -r '.info.version')
-          echo "api_version=$version" >> "$GITHUB_OUTPUT"
+          # Fetch the latest version of the Jikan API
+          http_content=$(curl -s $schema_registry_url)
+          api_version=$(echo $http_content | jq -r ".\"${schema_name}\".source_version" | grep -oP '^\d+\.\d+')
+          echo "api_version=$api_version" >> "$GITHUB_OUTPUT"
 
   update-submodule:
     runs-on: ubuntu-latest
     needs: compare-versions
-    if: ${{ needs.compare-versions.outputs.updated == 'true' }}
+    if: ${{ needs.compare-versions.outputs.up_to_date != 'true' || github.event.inputs.force_update == 'true' }}
     steps:
       - name: Checkout the generator repository
         uses: actions/checkout@v3
         with:
-          repository: 'HRAshton/jikan-api-lightweight-client-generator'
+          repository: 'lightweight-clients/${{ env.package_name }}-generator'
           path: generator
 
-      - name: Generate the client
+      - name: Run the generator
         working-directory: ./generator
         run: |
-          npm clean-install
+          npm install
           npm start
 
       - name: Checkout the client repository
@@ -59,7 +72,29 @@ jobs:
         working-directory: ./client
         run: |
           cp -r ../generator/output/* ./src/
-          npm version "${{ needs.compare-versions.outputs.api_version }}" --no-git-tag-version
+          bash ../generator/workflow-scripts/update-changelog-and-npm.sh \
+            ${{ needs.compare-versions.outputs.api_version }}.0
+
+      - name: Verify version
+        working-directory: ./client
+        run: |
+          api_version=${{ needs.compare-versions.outputs.api_version }}.0
+          openapi_version=$(jq -r '.info.version' ./schema/openapi.json)
+          npm_version=$(jq -r '.version' ./package.json)
+
+          echo "API version: $api_version"
+          echo "OpenAPI version: $openapi_version"
+          echo "NPM version: $npm_version"
+
+          if [[ $api_version != $openapi_version || $api_version != $npm_version ]]; then
+              echo "Versions do not match"
+              exit 60
+          fi
+
+          if [[ ! $api_version =~ ^[0-9]+\.[0-9]+\.0$ ]]; then
+              echo "Version has incorrect format"
+              exit 61
+          fi
 
       - name: Create Pull Request with current (uncommitted) changes
         uses: peter-evans/create-pull-request@v7
@@ -69,3 +104,5 @@ jobs:
           title: "Support API v${{ needs.compare-versions.outputs.api_version }}"
           body: "This PR updates the client to version ${{ needs.compare-versions.outputs.api_version }}."
           branch: "new_version/${{ needs.compare-versions.outputs.api_version }}"
+          base: master
+          assignees: HRAshton
