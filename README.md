@@ -1,12 +1,17 @@
 # Jikan API Lightweight Client
 
-This is typed lightweight client for Jikan API. It contains only methods and types
+[![NPM Version](https://img.shields.io/npm/v/jikan-api-lightweight-client)](https://www.npmjs.com/package/@lightweight-clients/jikan-api-lightweight-client)
+[![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2Flightweight-clients%2Fjikan-api-lightweight-client%2Factions%2Fworkflows%2Fcreate-new-version-when-it-is-released.yml%2Fruns%3Fstatus%3Dcompleted%26per_page%3D1&query=%24.workflow_runs%5B0%5D.run_started_at&style=flat&label=Last%20API%20version%20check)](https://github.com/lightweight-clients/jikan-api-lightweight-client/actions/workflows/create-new-version-when-it-is-released.yml)
+![NPM Downloads](https://img.shields.io/npm/dm/@lightweight-clients/jikan-api-lightweight-client)
+![GitHub License](https://img.shields.io/github/license/lightweight-clients/jikan-api-lightweight-client)
+
+This is a typed lightweight client for Jikan API. It contains only methods and types
 and exports only `fetch` calls to make requests.
 
 ## Installation
 
 ```bash
-npm install jikan-api-lightweight-client
+npm install @lightweight-clients/jikan-api-lightweight-client
 ```
 
 ## Usage
@@ -31,24 +36,25 @@ const allCowboyBebop = await getAnimeSearch({
 
 The library provides 2 groups of methods:
 
-- request methods: `getAnimeById`, `getMangaById`, `getCharacterById`, etc.
+- request methods: `getAnimeById`, `getMangaById`, `getCharacterById`, etc. These methods are used to make requests to the Jikan API.
 - `client_*`: methods for configuring the client.
 
-### Request methods
+#### Request Methods
 
-The request methods are named as in [Jikan API](https://docs.api.jikan.moe/) documentation.
+They return a promise that resolves to the response from the API.
+You can find all request methods in the 'client.ts' file.
+The request methods are named as in Jikan API documentation, so you can easily find them.
 
-### `client_` methods
+#### `client_*` Methods
 
 The methods starting with `client_` are used to configure the client. They are:
 
-- `client_setBaseUrl(endpoint: string)`: sets endpoint for all requests.
-  It can be used to set custom endpoint if you need to use local server or proxy.  
-  The string should end with `/`.  
-  Default value: `https://api.jikan.moe/v4/`.
-- `client_setFetch(customFetch: <Request, Result>(path: string, args?: Request): Promise<Result>)`:
-  sets fetch function for all requests.  
-  It can be used to set custom fetch function if you need to use custom request library.
+- `client_setBaseUrl(endpoint: string)`: sets the endpoint.  
+  Defaults to `https://api.jikan.moe/v4/`.
+  If you want to use a different endpoint (e.g., for a self-hosted Jikan API server or a proxy), you can set it here.
+- `client_setFetch(customFetch: <Request, Result>(path: string, args?: Request): Promise<Result>)`: sets the fetch function for all requests.
+  Defaults to the `fetch` function from the `node-fetch` package.
+  If you want to use a different fetch function (e.g., for browser or Node.js), you can set it here.
 
 ## Features
 
@@ -61,8 +67,13 @@ The methods starting with `client_` are used to configure the client. They are:
 ## Versioning
 
 The versioning of this library is based on Jikan API versioning. So, if Jikan API
-version is 4.0.0, then this library version will be 4.0.0-X. The last number is for bug fixes and
+version is 4.0, then this library version will be 4.0.1. The last number is for bug fixes and
 small changes in the library.
+
+## Schema
+
+The schema for the Jikan API is available in the
+[lightweight-clients/schemas](https://github.com/lightweight-clients/schemas) repository.
 
 ## License
 
