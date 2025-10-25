@@ -6,6 +6,16 @@ and no migration is needed.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.0.2
+
+No changes in code, only package metadata and build process updated.
+
+### Changed
+
+- Package author changed from "@lightweight-clients" to "lightweight-clients".
+- Updated dependencies.
+- Reworked build process.
+
 ## 4.0.1
 
 The package has been renamed from jikan-api-lightweight-client to @lightweight-clients/jikan-api-lightweight-client.
