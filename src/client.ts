@@ -6,8 +6,8 @@
  * Configure the client via 'core.ts'.
  */
 
-import type * as types from './types';
-import { client_fetch } from './core';
+import type * as types from './types.js';
+import { client_fetch } from './core.js';
 
 /**
  * Returns complete anime resource data

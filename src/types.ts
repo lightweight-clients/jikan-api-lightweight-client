@@ -1,6 +1,6 @@
 ﻿// noinspection JSUnusedGlobalSymbols
 
-import type * as types from './raw-types';
+import type * as types from './raw-types.js';
 
 // Types for /getAnimeFullById
 export type GetAnimeFullByIdResponse =
