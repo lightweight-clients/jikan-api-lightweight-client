@@ -1,6 +1,6 @@
 {
   "name": "@lightweight-clients/jikan-api-lightweight-client",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Lightweight Jikan API client. Exports only minimal Fetch call. Fully compatible with AWS LLRT.",
   "source": "src/index.ts",
   "main": "dist/index.js",
