@@ -1,3 +1,3 @@
-﻿export type * from './types';
-export * from './client';
-export * from './core';
+﻿export type * from './types.js';
+export * from './client.js';
+export * from './core.js';

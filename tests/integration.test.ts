@@ -8,7 +8,7 @@ describe('requests integration tests', () => {
       console.log('fetch called with URL:', url.toString());
       return baseFetch(url);
     });
-  })
+  });
 
   test('should call a method with no args', async () => {
     const response = await getRandomAnime();
