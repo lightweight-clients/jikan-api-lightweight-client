@@ -40,7 +40,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest --run",
-    "full-check": "run-p lint knip updates:check ts:check && run-s test",
+    "full-check": "run-p lint knip ts:check && run-s test",
     "build": "tsc",
     "precommit": "run-s full-check lockfile",
     "prepack": "run-s full-check build"
@@ -57,17 +57,17 @@
     "url": "https://github.com/lightweight-clients/jikan-api-lightweight-client/issues"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.38.0",
-    "@types/node": "^24.9.1",
-    "@typescript-eslint/eslint-plugin": "^8.46.2",
-    "@typescript-eslint/parser": "^8.46.2",
-    "eslint": "^9.38.0",
-    "knip": "^5.66.3",
-    "npm-check-updates": "^19.1.1",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.3"
+    "@eslint/eslintrc": "^3.3.6",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.64.0",
+    "@typescript-eslint/parser": "^8.64.0",
+    "eslint": "^10.7.0",
+    "knip": "^6.27.0",
+    "npm-check-updates": "^22.2.9",
+    "npm-run-all2": "^9.0.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
   },
   "schema_version": "4.0.0+20250527210450"
 }
