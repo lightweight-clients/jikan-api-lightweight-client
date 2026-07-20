@@ -1,13 +1,19 @@
-﻿import { describe, test, expect, vi, beforeEach } from 'vitest';
-import { client_setBaseUrl, client_setFetch, getAnimeNews, getAnimeSearch, getRandomAnime } from '../src';
+﻿import { beforeEach, describe, expect, test, vi } from 'vitest';
+import {
+  client_setBaseUrl,
+  client_setFetch,
+  getAnimeNews,
+  getAnimeSearch,
+  getRandomAnime,
+} from '../src';
 
 describe('client setup tests', () => {
-  const fetchMock = global.fetch = vi.fn(url => {
-    console.log('fetch called', String(url));
-    return Promise.resolve({
+  const fetchMock = vi.fn(() =>
+    Promise.resolve({
       json: () => Promise.resolve({}),
-    });
-  }) as unknown as typeof global.fetch;
+    }),
+  ) as unknown as typeof global.fetch;
+  global.fetch = fetchMock;
 
   beforeEach(() => vi.clearAllMocks());
 
@@ -21,7 +27,9 @@ describe('client setup tests', () => {
 
   test('should handle no args correctly', async () => {
     await getRandomAnime();
-    expect(fetchMock).toHaveBeenCalledWith(new URL('https://api.jikan.moe/v4/random/anime'));
+    expect(fetchMock).toHaveBeenCalledWith(
+      new URL('https://api.jikan.moe/v4/random/anime'),
+    );
   });
 
   test('should handle complex args correctly', async () => {
@@ -34,7 +42,9 @@ describe('client setup tests', () => {
     });
 
     expect(fetchMock).toHaveBeenCalledWith(
-      new URL('https://api.jikan.moe/v4/anime?q=Cowboy+Bebop&limit=3&page=2&order_by=mal_id&sort=asc'),
+      new URL(
+        'https://api.jikan.moe/v4/anime?q=Cowboy+Bebop&limit=3&page=2&order_by=mal_id&sort=asc',
+      ),
     );
   });
 
