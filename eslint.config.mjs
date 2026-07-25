@@ -90,4 +90,15 @@ export default [
     },
     rules: commonRules,
   },
+  // Node-based test infrastructure.
+  {
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      globals: {
+        fetch: 'readonly',
+        process: 'readonly',
+        setTimeout: 'readonly',
+      },
+    },
+  },
 ];

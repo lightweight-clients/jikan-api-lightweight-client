@@ -16,20 +16,16 @@ export const getAnimeFullById = async (
   id: number,
 ): Promise<
   types.GetAnimeFullByIdOkResponse | types.GetAnimeFullByIdResponse
-> => {
-  return await client_fetch<never, types.GetAnimeFullByIdResponse>(
-    `anime/${id}/full`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeFullByIdResponse>(
+  `anime/${id}/full`,
+);
 
 /**
  * Returns anime resource
  */
 export const getAnimeById = async (
   id: number,
-): Promise<types.GetAnimeByIdOkResponse | types.GetAnimeByIdResponse> => {
-  return await client_fetch<never, types.GetAnimeByIdResponse>(`anime/${id}`);
-};
+): Promise<types.GetAnimeByIdOkResponse | types.GetAnimeByIdResponse> => await client_fetch<never, types.GetAnimeByIdResponse>(`anime/${id}`);
 
 /**
  * Returns anime characters resource
@@ -38,22 +34,18 @@ export const getAnimeCharacters = async (
   id: number,
 ): Promise<
   types.GetAnimeCharactersOkResponse | types.GetAnimeCharactersResponse
-> => {
-  return await client_fetch<never, types.GetAnimeCharactersResponse>(
-    `anime/${id}/characters`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeCharactersResponse>(
+  `anime/${id}/characters`,
+);
 
 /**
  * Returns anime staff resource
  */
 export const getAnimeStaff = async (
   id: number,
-): Promise<types.GetAnimeStaffOkResponse | types.GetAnimeStaffResponse> => {
-  return await client_fetch<never, types.GetAnimeStaffResponse>(
-    `anime/${id}/staff`,
-  );
-};
+): Promise<types.GetAnimeStaffOkResponse | types.GetAnimeStaffResponse> => await client_fetch<never, types.GetAnimeStaffResponse>(
+  `anime/${id}/staff`,
+);
 
 /**
  * Returns a list of anime episodes
@@ -62,11 +54,9 @@ export const getAnimeEpisodes = async (
   id: number,
 ): Promise<
   types.GetAnimeEpisodesOkResponse | types.GetAnimeEpisodesResponse
-> => {
-  return await client_fetch<never, types.GetAnimeEpisodesResponse>(
-    `anime/${id}/episodes`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeEpisodesResponse>(
+  `anime/${id}/episodes`,
+);
 
 /**
  * Returns a single anime episode resource
@@ -76,22 +66,18 @@ export const getAnimeEpisodeById = async (
   episode: number,
 ): Promise<
   types.GetAnimeEpisodeByIdOkResponse | types.GetAnimeEpisodeByIdResponse
-> => {
-  return await client_fetch<never, types.GetAnimeEpisodeByIdResponse>(
-    `anime/${id}/episodes/${episode}`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeEpisodeByIdResponse>(
+  `anime/${id}/episodes/${episode}`,
+);
 
 /**
  * Returns a list of news articles related to the entry
  */
 export const getAnimeNews = async (
   id: number,
-): Promise<types.GetAnimeNewsOkResponse | types.GetAnimeNewsResponse> => {
-  return await client_fetch<never, types.GetAnimeNewsResponse>(
-    `anime/${id}/news`,
-  );
-};
+): Promise<types.GetAnimeNewsOkResponse | types.GetAnimeNewsResponse> => await client_fetch<never, types.GetAnimeNewsResponse>(
+  `anime/${id}/news`,
+);
 
 /**
  * Returns a list of forum topics related to the entry
@@ -99,23 +85,19 @@ export const getAnimeNews = async (
 export const getAnimeForum = async (
   id: number,
   args: types.GetAnimeForumData,
-): Promise<types.GetAnimeForumOkResponse | types.GetAnimeForumResponse> => {
-  return await client_fetch<
+): Promise<types.GetAnimeForumOkResponse | types.GetAnimeForumResponse> => await client_fetch<
     types.GetAnimeForumData,
     types.GetAnimeForumResponse
   >(`anime/${id}/forum`, args);
-};
 
 /**
  * Returns videos related to the entry
  */
 export const getAnimeVideos = async (
   id: number,
-): Promise<types.GetAnimeVideosOkResponse | types.GetAnimeVideosResponse> => {
-  return await client_fetch<never, types.GetAnimeVideosResponse>(
-    `anime/${id}/videos`,
-  );
-};
+): Promise<types.GetAnimeVideosOkResponse | types.GetAnimeVideosResponse> => await client_fetch<never, types.GetAnimeVideosResponse>(
+  `anime/${id}/videos`,
+);
 
 /**
  * Returns episode videos related to the entry
@@ -124,11 +106,9 @@ export const getAnimeVideosEpisodes = async (
   id: number,
 ): Promise<
   types.GetAnimeVideosEpisodesOkResponse | types.GetAnimeVideosEpisodesResponse
-> => {
-  return await client_fetch<never, types.GetAnimeVideosEpisodesResponse>(
-    `anime/${id}/videos/episodes`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeVideosEpisodesResponse>(
+  `anime/${id}/videos/episodes`,
+);
 
 /**
  * Returns pictures related to the entry
@@ -137,11 +117,9 @@ export const getAnimePictures = async (
   id: number,
 ): Promise<
   types.GetAnimePicturesOkResponse | types.GetAnimePicturesResponse
-> => {
-  return await client_fetch<never, types.GetAnimePicturesResponse>(
-    `anime/${id}/pictures`,
-  );
-};
+> => await client_fetch<never, types.GetAnimePicturesResponse>(
+  `anime/${id}/pictures`,
+);
 
 /**
  * Returns anime statistics
@@ -150,11 +128,9 @@ export const getAnimeStatistics = async (
   id: number,
 ): Promise<
   types.GetAnimeStatisticsOkResponse | types.GetAnimeStatisticsResponse
-> => {
-  return await client_fetch<never, types.GetAnimeStatisticsResponse>(
-    `anime/${id}/statistics`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeStatisticsResponse>(
+  `anime/${id}/statistics`,
+);
 
 /**
  * Returns anime statistics
@@ -163,11 +139,9 @@ export const getAnimeMoreInfo = async (
   id: number,
 ): Promise<
   types.GetAnimeMoreInfoOkResponse | types.GetAnimeMoreInfoResponse
-> => {
-  return await client_fetch<never, types.GetAnimeMoreInfoResponse>(
-    `anime/${id}/moreinfo`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeMoreInfoResponse>(
+  `anime/${id}/moreinfo`,
+);
 
 /**
  * Returns anime recommendations
@@ -177,11 +151,9 @@ export const getAnimeRecommendations = async (
 ): Promise<
   | types.GetAnimeRecommendationsOkResponse
   | types.GetAnimeRecommendationsResponse
-> => {
-  return await client_fetch<never, types.GetAnimeRecommendationsResponse>(
-    `anime/${id}/recommendations`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeRecommendationsResponse>(
+  `anime/${id}/recommendations`,
+);
 
 /**
  * Returns a list of users who have added/updated/removed the entry on their list
@@ -190,22 +162,18 @@ export const getAnimeUserUpdates = async (
   id: number,
 ): Promise<
   types.GetAnimeUserUpdatesOkResponse | types.GetAnimeUserUpdatesResponse
-> => {
-  return await client_fetch<never, types.GetAnimeUserUpdatesResponse>(
-    `anime/${id}/userupdates`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeUserUpdatesResponse>(
+  `anime/${id}/userupdates`,
+);
 
 /**
  * Returns anime reviews
  */
 export const getAnimeReviews = async (
   id: number,
-): Promise<types.GetAnimeReviewsOkResponse | types.GetAnimeReviewsResponse> => {
-  return await client_fetch<never, types.GetAnimeReviewsResponse>(
-    `anime/${id}/reviews`,
-  );
-};
+): Promise<types.GetAnimeReviewsOkResponse | types.GetAnimeReviewsResponse> => await client_fetch<never, types.GetAnimeReviewsResponse>(
+  `anime/${id}/reviews`,
+);
 
 /**
  * Returns anime relations
@@ -214,22 +182,18 @@ export const getAnimeRelations = async (
   id: number,
 ): Promise<
   types.GetAnimeRelationsOkResponse | types.GetAnimeRelationsResponse
-> => {
-  return await client_fetch<never, types.GetAnimeRelationsResponse>(
-    `anime/${id}/relations`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeRelationsResponse>(
+  `anime/${id}/relations`,
+);
 
 /**
  * Returns anime themes
  */
 export const getAnimeThemes = async (
   id: number,
-): Promise<types.GetAnimeThemesOkResponse | types.GetAnimeThemesResponse> => {
-  return await client_fetch<never, types.GetAnimeThemesResponse>(
-    `anime/${id}/themes`,
-  );
-};
+): Promise<types.GetAnimeThemesOkResponse | types.GetAnimeThemesResponse> => await client_fetch<never, types.GetAnimeThemesResponse>(
+  `anime/${id}/themes`,
+);
 
 /**
  * Returns anime external links
@@ -238,11 +202,9 @@ export const getAnimeExternal = async (
   id: number,
 ): Promise<
   types.GetAnimeExternalOkResponse | types.GetAnimeExternalResponse
-> => {
-  return await client_fetch<never, types.GetAnimeExternalResponse>(
-    `anime/${id}/external`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeExternalResponse>(
+  `anime/${id}/external`,
+);
 
 /**
  * Returns anime streaming links
@@ -251,11 +213,9 @@ export const getAnimeStreaming = async (
   id: number,
 ): Promise<
   types.GetAnimeStreamingOkResponse | types.GetAnimeStreamingResponse
-> => {
-  return await client_fetch<never, types.GetAnimeStreamingResponse>(
-    `anime/${id}/streaming`,
-  );
-};
+> => await client_fetch<never, types.GetAnimeStreamingResponse>(
+  `anime/${id}/streaming`,
+);
 
 /**
  * Returns complete character resource data
@@ -264,11 +224,9 @@ export const getCharacterFullById = async (
   id: number,
 ): Promise<
   types.GetCharacterFullByIdOkResponse | types.GetCharacterFullByIdResponse
-> => {
-  return await client_fetch<never, types.GetCharacterFullByIdResponse>(
-    `characters/${id}/full`,
-  );
-};
+> => await client_fetch<never, types.GetCharacterFullByIdResponse>(
+  `characters/${id}/full`,
+);
 
 /**
  * Returns character resource
@@ -277,11 +235,9 @@ export const getCharacterById = async (
   id: number,
 ): Promise<
   types.GetCharacterByIdOkResponse | types.GetCharacterByIdResponse
-> => {
-  return await client_fetch<never, types.GetCharacterByIdResponse>(
-    `characters/${id}`,
-  );
-};
+> => await client_fetch<never, types.GetCharacterByIdResponse>(
+  `characters/${id}`,
+);
 
 /**
  * Returns anime that character is in
@@ -290,11 +246,9 @@ export const getCharacterAnime = async (
   id: number,
 ): Promise<
   types.GetCharacterAnimeOkResponse | types.GetCharacterAnimeResponse
-> => {
-  return await client_fetch<never, types.GetCharacterAnimeResponse>(
-    `characters/${id}/anime`,
-  );
-};
+> => await client_fetch<never, types.GetCharacterAnimeResponse>(
+  `characters/${id}/anime`,
+);
 
 /**
  * Returns manga that character is in
@@ -303,11 +257,9 @@ export const getCharacterManga = async (
   id: number,
 ): Promise<
   types.GetCharacterMangaOkResponse | types.GetCharacterMangaResponse
-> => {
-  return await client_fetch<never, types.GetCharacterMangaResponse>(
-    `characters/${id}/manga`,
-  );
-};
+> => await client_fetch<never, types.GetCharacterMangaResponse>(
+  `characters/${id}/manga`,
+);
 
 /**
  * Returns the character&#39;s voice actors
@@ -317,11 +269,9 @@ export const getCharacterVoiceActors = async (
 ): Promise<
   | types.GetCharacterVoiceActorsOkResponse
   | types.GetCharacterVoiceActorsResponse
-> => {
-  return await client_fetch<never, types.GetCharacterVoiceActorsResponse>(
-    `characters/${id}/voices`,
-  );
-};
+> => await client_fetch<never, types.GetCharacterVoiceActorsResponse>(
+  `characters/${id}/voices`,
+);
 
 /**
  * Returns pictures related to the entry
@@ -330,42 +280,34 @@ export const getCharacterPictures = async (
   id: number,
 ): Promise<
   types.GetCharacterPicturesOkResponse | types.GetCharacterPicturesResponse
-> => {
-  return await client_fetch<never, types.GetCharacterPicturesResponse>(
-    `characters/${id}/pictures`,
-  );
-};
+> => await client_fetch<never, types.GetCharacterPicturesResponse>(
+  `characters/${id}/pictures`,
+);
 
 /**
  * Returns Club Resource
  */
 export const getClubsById = async (
   id: number,
-): Promise<types.GetClubsByIdOkResponse | types.GetClubsByIdResponse> => {
-  return await client_fetch<never, types.GetClubsByIdResponse>(`clubs/${id}`);
-};
+): Promise<types.GetClubsByIdOkResponse | types.GetClubsByIdResponse> => await client_fetch<never, types.GetClubsByIdResponse>(`clubs/${id}`);
 
 /**
  * Returns Club Members Resource
  */
 export const getClubMembers = async (
   id: number,
-): Promise<types.GetClubMembersOkResponse | types.GetClubMembersResponse> => {
-  return await client_fetch<never, types.GetClubMembersResponse>(
-    `clubs/${id}/members`,
-  );
-};
+): Promise<types.GetClubMembersOkResponse | types.GetClubMembersResponse> => await client_fetch<never, types.GetClubMembersResponse>(
+  `clubs/${id}/members`,
+);
 
 /**
  * Returns Club Staff
  */
 export const getClubStaff = async (
   id: number,
-): Promise<types.GetClubStaffOkResponse | types.GetClubStaffResponse> => {
-  return await client_fetch<never, types.GetClubStaffResponse>(
-    `clubs/${id}/staff`,
-  );
-};
+): Promise<types.GetClubStaffOkResponse | types.GetClubStaffResponse> => await client_fetch<never, types.GetClubStaffResponse>(
+  `clubs/${id}/staff`,
+);
 
 /**
  * Returns Club Relations
@@ -374,47 +316,39 @@ export const getClubRelations = async (
   id: number,
 ): Promise<
   types.GetClubRelationsOkResponse | types.GetClubRelationsResponse
-> => {
-  return await client_fetch<never, types.GetClubRelationsResponse>(
-    `clubs/${id}/relations`,
-  );
-};
+> => await client_fetch<never, types.GetClubRelationsResponse>(
+  `clubs/${id}/relations`,
+);
 
 /**
  * Returns entry genres, explicit_genres, themes and demographics
  */
 export const getAnimeGenres = async (
   args: types.GetAnimeGenresData,
-): Promise<types.GetAnimeGenresOkResponse | types.GetAnimeGenresResponse> => {
-  return await client_fetch<
+): Promise<types.GetAnimeGenresOkResponse | types.GetAnimeGenresResponse> => await client_fetch<
     types.GetAnimeGenresData,
     types.GetAnimeGenresResponse
-  >(`genres/anime`, args);
-};
+  >('genres/anime', args);
 
 /**
  * Returns entry genres, explicit_genres, themes and demographics
  */
 export const getMangaGenres = async (
   args: types.GetMangaGenresData,
-): Promise<types.GetMangaGenresOkResponse | types.GetMangaGenresResponse> => {
-  return await client_fetch<
+): Promise<types.GetMangaGenresOkResponse | types.GetMangaGenresResponse> => await client_fetch<
     types.GetMangaGenresData,
     types.GetMangaGenresResponse
-  >(`genres/manga`, args);
-};
+  >('genres/manga', args);
 
 /**
  * Returns magazines collection
  */
 export const getMagazines = async (
   args: types.GetMagazinesData,
-): Promise<types.GetMagazinesOkResponse | types.GetMagazinesResponse> => {
-  return await client_fetch<types.GetMagazinesData, types.GetMagazinesResponse>(
-    `magazines`,
-    args,
-  );
-};
+): Promise<types.GetMagazinesOkResponse | types.GetMagazinesResponse> => await client_fetch<types.GetMagazinesData, types.GetMagazinesResponse>(
+  'magazines',
+  args,
+);
 
 /**
  * Returns complete manga resource data
@@ -423,20 +357,16 @@ export const getMangaFullById = async (
   id: number,
 ): Promise<
   types.GetMangaFullByIdOkResponse | types.GetMangaFullByIdResponse
-> => {
-  return await client_fetch<never, types.GetMangaFullByIdResponse>(
-    `manga/${id}/full`,
-  );
-};
+> => await client_fetch<never, types.GetMangaFullByIdResponse>(
+  `manga/${id}/full`,
+);
 
 /**
  * Returns pictures related to the entry
  */
 export const getMangaById = async (
   id: number,
-): Promise<types.GetMangaByIdOkResponse | types.GetMangaByIdResponse> => {
-  return await client_fetch<never, types.GetMangaByIdResponse>(`manga/${id}`);
-};
+): Promise<types.GetMangaByIdOkResponse | types.GetMangaByIdResponse> => await client_fetch<never, types.GetMangaByIdResponse>(`manga/${id}`);
 
 /**
  * Returns manga characters resource
@@ -445,22 +375,18 @@ export const getMangaCharacters = async (
   id: number,
 ): Promise<
   types.GetMangaCharactersOkResponse | types.GetMangaCharactersResponse
-> => {
-  return await client_fetch<never, types.GetMangaCharactersResponse>(
-    `manga/${id}/characters`,
-  );
-};
+> => await client_fetch<never, types.GetMangaCharactersResponse>(
+  `manga/${id}/characters`,
+);
 
 /**
  * Returns a list of manga news topics
  */
 export const getMangaNews = async (
   id: number,
-): Promise<types.GetMangaNewsOkResponse | types.GetMangaNewsResponse> => {
-  return await client_fetch<never, types.GetMangaNewsResponse>(
-    `manga/${id}/news`,
-  );
-};
+): Promise<types.GetMangaNewsOkResponse | types.GetMangaNewsResponse> => await client_fetch<never, types.GetMangaNewsResponse>(
+  `manga/${id}/news`,
+);
 
 /**
  * Returns a list of manga forum topics
@@ -468,12 +394,10 @@ export const getMangaNews = async (
 export const getMangaTopics = async (
   id: number,
   args: types.GetMangaTopicsData,
-): Promise<types.GetMangaTopicsOkResponse | types.GetMangaTopicsResponse> => {
-  return await client_fetch<
+): Promise<types.GetMangaTopicsOkResponse | types.GetMangaTopicsResponse> => await client_fetch<
     types.GetMangaTopicsData,
     types.GetMangaTopicsResponse
   >(`manga/${id}/forum`, args);
-};
 
 /**
  * Returns a list of manga pictures
@@ -482,11 +406,9 @@ export const getMangaPictures = async (
   id: number,
 ): Promise<
   types.GetMangaPicturesOkResponse | types.GetMangaPicturesResponse
-> => {
-  return await client_fetch<never, types.GetMangaPicturesResponse>(
-    `manga/${id}/pictures`,
-  );
-};
+> => await client_fetch<never, types.GetMangaPicturesResponse>(
+  `manga/${id}/pictures`,
+);
 
 /**
  * Returns anime statistics
@@ -495,11 +417,9 @@ export const getMangaStatistics = async (
   id: number,
 ): Promise<
   types.GetMangaStatisticsOkResponse | types.GetMangaStatisticsResponse
-> => {
-  return await client_fetch<never, types.GetMangaStatisticsResponse>(
-    `manga/${id}/statistics`,
-  );
-};
+> => await client_fetch<never, types.GetMangaStatisticsResponse>(
+  `manga/${id}/statistics`,
+);
 
 /**
  * Returns manga moreinfo
@@ -508,11 +428,9 @@ export const getMangaMoreInfo = async (
   id: number,
 ): Promise<
   types.GetMangaMoreInfoOkResponse | types.GetMangaMoreInfoResponse
-> => {
-  return await client_fetch<never, types.GetMangaMoreInfoResponse>(
-    `manga/${id}/moreinfo`,
-  );
-};
+> => await client_fetch<never, types.GetMangaMoreInfoResponse>(
+  `manga/${id}/moreinfo`,
+);
 
 /**
  * Returns manga recommendations
@@ -522,11 +440,9 @@ export const getMangaRecommendations = async (
 ): Promise<
   | types.GetMangaRecommendationsOkResponse
   | types.GetMangaRecommendationsResponse
-> => {
-  return await client_fetch<never, types.GetMangaRecommendationsResponse>(
-    `manga/${id}/recommendations`,
-  );
-};
+> => await client_fetch<never, types.GetMangaRecommendationsResponse>(
+  `manga/${id}/recommendations`,
+);
 
 /**
  * Returns manga user updates
@@ -535,22 +451,18 @@ export const getMangaUserUpdates = async (
   id: number,
 ): Promise<
   types.GetMangaUserUpdatesOkResponse | types.GetMangaUserUpdatesResponse
-> => {
-  return await client_fetch<never, types.GetMangaUserUpdatesResponse>(
-    `manga/${id}/userupdates`,
-  );
-};
+> => await client_fetch<never, types.GetMangaUserUpdatesResponse>(
+  `manga/${id}/userupdates`,
+);
 
 /**
  * Returns manga reviews
  */
 export const getMangaReviews = async (
   id: number,
-): Promise<types.GetMangaReviewsOkResponse | types.GetMangaReviewsResponse> => {
-  return await client_fetch<never, types.GetMangaReviewsResponse>(
-    `manga/${id}/reviews`,
-  );
-};
+): Promise<types.GetMangaReviewsOkResponse | types.GetMangaReviewsResponse> => await client_fetch<never, types.GetMangaReviewsResponse>(
+  `manga/${id}/reviews`,
+);
 
 /**
  * Returns manga relations
@@ -559,11 +471,9 @@ export const getMangaRelations = async (
   id: number,
 ): Promise<
   types.GetMangaRelationsOkResponse | types.GetMangaRelationsResponse
-> => {
-  return await client_fetch<never, types.GetMangaRelationsResponse>(
-    `manga/${id}/relations`,
-  );
-};
+> => await client_fetch<never, types.GetMangaRelationsResponse>(
+  `manga/${id}/relations`,
+);
 
 /**
  * Returns manga external links
@@ -572,11 +482,9 @@ export const getMangaExternal = async (
   id: number,
 ): Promise<
   types.GetMangaExternalOkResponse | types.GetMangaExternalResponse
-> => {
-  return await client_fetch<never, types.GetMangaExternalResponse>(
-    `manga/${id}/external`,
-  );
-};
+> => await client_fetch<never, types.GetMangaExternalResponse>(
+  `manga/${id}/external`,
+);
 
 /**
  * Returns complete character resource data
@@ -585,53 +493,43 @@ export const getPersonFullById = async (
   id: number,
 ): Promise<
   types.GetPersonFullByIdOkResponse | types.GetPersonFullByIdResponse
-> => {
-  return await client_fetch<never, types.GetPersonFullByIdResponse>(
-    `people/${id}/full`,
-  );
-};
+> => await client_fetch<never, types.GetPersonFullByIdResponse>(
+  `people/${id}/full`,
+);
 
 /**
  * Returns pictures related to the entry
  */
 export const getPersonById = async (
   id: number,
-): Promise<types.GetPersonByIdOkResponse | types.GetPersonByIdResponse> => {
-  return await client_fetch<never, types.GetPersonByIdResponse>(`people/${id}`);
-};
+): Promise<types.GetPersonByIdOkResponse | types.GetPersonByIdResponse> => await client_fetch<never, types.GetPersonByIdResponse>(`people/${id}`);
 
 /**
  * Returns person&#39;s anime staff positions
  */
 export const getPersonAnime = async (
   id: number,
-): Promise<types.GetPersonAnimeOkResponse | types.GetPersonAnimeResponse> => {
-  return await client_fetch<never, types.GetPersonAnimeResponse>(
-    `people/${id}/anime`,
-  );
-};
+): Promise<types.GetPersonAnimeOkResponse | types.GetPersonAnimeResponse> => await client_fetch<never, types.GetPersonAnimeResponse>(
+  `people/${id}/anime`,
+);
 
 /**
  * Returns person&#39;s voice acting roles
  */
 export const getPersonVoices = async (
   id: number,
-): Promise<types.GetPersonVoicesOkResponse | types.GetPersonVoicesResponse> => {
-  return await client_fetch<never, types.GetPersonVoicesResponse>(
-    `people/${id}/voices`,
-  );
-};
+): Promise<types.GetPersonVoicesOkResponse | types.GetPersonVoicesResponse> => await client_fetch<never, types.GetPersonVoicesResponse>(
+  `people/${id}/voices`,
+);
 
 /**
  * Returns person&#39;s published manga works
  */
 export const getPersonManga = async (
   id: number,
-): Promise<types.GetPersonMangaOkResponse | types.GetPersonMangaResponse> => {
-  return await client_fetch<never, types.GetPersonMangaResponse>(
-    `people/${id}/manga`,
-  );
-};
+): Promise<types.GetPersonMangaOkResponse | types.GetPersonMangaResponse> => await client_fetch<never, types.GetPersonMangaResponse>(
+  `people/${id}/manga`,
+);
 
 /**
  * Returns a list of pictures of the person
@@ -640,22 +538,18 @@ export const getPersonPictures = async (
   id: number,
 ): Promise<
   types.GetPersonPicturesOkResponse | types.GetPersonPicturesResponse
-> => {
-  return await client_fetch<never, types.GetPersonPicturesResponse>(
-    `people/${id}/pictures`,
-  );
-};
+> => await client_fetch<never, types.GetPersonPicturesResponse>(
+  `people/${id}/pictures`,
+);
 
 /**
  * Returns producer resource
  */
 export const getProducerById = async (
   id: number,
-): Promise<types.GetProducerByIdOkResponse | types.GetProducerByIdResponse> => {
-  return await client_fetch<never, types.GetProducerByIdResponse>(
-    `producers/${id}`,
-  );
-};
+): Promise<types.GetProducerByIdOkResponse | types.GetProducerByIdResponse> => await client_fetch<never, types.GetProducerByIdResponse>(
+  `producers/${id}`,
+);
 
 /**
  * Returns producer resource
@@ -664,11 +558,9 @@ export const getProducerFullById = async (
   id: number,
 ): Promise<
   types.GetProducerFullByIdOkResponse | types.GetProducerFullByIdResponse
-> => {
-  return await client_fetch<never, types.GetProducerFullByIdResponse>(
-    `producers/${id}/full`,
-  );
-};
+> => await client_fetch<never, types.GetProducerFullByIdResponse>(
+  `producers/${id}/full`,
+);
 
 /**
  * Returns producer&#39;s external links
@@ -677,66 +569,54 @@ export const getProducerExternal = async (
   id: number,
 ): Promise<
   types.GetProducerExternalOkResponse | types.GetProducerExternalResponse
-> => {
-  return await client_fetch<never, types.GetProducerExternalResponse>(
-    `producers/${id}/external`,
-  );
-};
+> => await client_fetch<never, types.GetProducerExternalResponse>(
+  `producers/${id}/external`,
+);
 
 /**
  * Returns a random anime resource
  */
 export const getRandomAnime = async (): Promise<
   types.GetRandomAnimeOkResponse | types.GetRandomAnimeResponse
-> => {
-  return await client_fetch<never, types.GetRandomAnimeResponse>(
-    `random/anime`,
-  );
-};
+> => await client_fetch<never, types.GetRandomAnimeResponse>(
+  'random/anime',
+);
 
 /**
  * Returns a random manga resource
  */
 export const getRandomManga = async (): Promise<
   types.GetRandomMangaOkResponse | types.GetRandomMangaResponse
-> => {
-  return await client_fetch<never, types.GetRandomMangaResponse>(
-    `random/manga`,
-  );
-};
+> => await client_fetch<never, types.GetRandomMangaResponse>(
+  'random/manga',
+);
 
 /**
  * Returns a random character resource
  */
 export const getRandomCharacters = async (): Promise<
   types.GetRandomCharactersOkResponse | types.GetRandomCharactersResponse
-> => {
-  return await client_fetch<never, types.GetRandomCharactersResponse>(
-    `random/characters`,
-  );
-};
+> => await client_fetch<never, types.GetRandomCharactersResponse>(
+  'random/characters',
+);
 
 /**
  * Returns a random person resource
  */
 export const getRandomPeople = async (): Promise<
   types.GetRandomPeopleOkResponse | types.GetRandomPeopleResponse
-> => {
-  return await client_fetch<never, types.GetRandomPeopleResponse>(
-    `random/people`,
-  );
-};
+> => await client_fetch<never, types.GetRandomPeopleResponse>(
+  'random/people',
+);
 
 /**
  * Returns a random user profile resource
  */
 export const getRandomUsers = async (): Promise<
   types.GetRandomUsersOkResponse | types.GetRandomUsersResponse
-> => {
-  return await client_fetch<never, types.GetRandomUsersResponse>(
-    `random/users`,
-  );
-};
+> => await client_fetch<never, types.GetRandomUsersResponse>(
+  'random/users',
+);
 
 /**
  * Returns recent anime recommendations
@@ -744,11 +624,9 @@ export const getRandomUsers = async (): Promise<
 export const getRecentAnimeRecommendations = async (): Promise<
   | types.GetRecentAnimeRecommendationsOkResponse
   | types.GetRecentAnimeRecommendationsResponse
-> => {
-  return await client_fetch<never, types.GetRecentAnimeRecommendationsResponse>(
-    `recommendations/anime`,
-  );
-};
+> => await client_fetch<never, types.GetRecentAnimeRecommendationsResponse>(
+  'recommendations/anime',
+);
 
 /**
  * Returns recent manga recommendations
@@ -756,81 +634,67 @@ export const getRecentAnimeRecommendations = async (): Promise<
 export const getRecentMangaRecommendations = async (): Promise<
   | types.GetRecentMangaRecommendationsOkResponse
   | types.GetRecentMangaRecommendationsResponse
-> => {
-  return await client_fetch<never, types.GetRecentMangaRecommendationsResponse>(
-    `recommendations/manga`,
-  );
-};
+> => await client_fetch<never, types.GetRecentMangaRecommendationsResponse>(
+  'recommendations/manga',
+);
 
 /**
  * Returns recent anime reviews
  */
 export const getRecentAnimeReviews = async (): Promise<
   types.GetRecentAnimeReviewsOkResponse | types.GetRecentAnimeReviewsResponse
-> => {
-  return await client_fetch<never, types.GetRecentAnimeReviewsResponse>(
-    `reviews/anime`,
-  );
-};
+> => await client_fetch<never, types.GetRecentAnimeReviewsResponse>(
+  'reviews/anime',
+);
 
 /**
  * Returns recent manga reviews
  */
 export const getRecentMangaReviews = async (): Promise<
   types.GetRecentMangaReviewsOkResponse | types.GetRecentMangaReviewsResponse
-> => {
-  return await client_fetch<never, types.GetRecentMangaReviewsResponse>(
-    `reviews/manga`,
-  );
-};
+> => await client_fetch<never, types.GetRecentMangaReviewsResponse>(
+  'reviews/manga',
+);
 
 /**
  * Returns weekly schedule
  */
 export const getSchedules = async (
   args: types.GetSchedulesData,
-): Promise<types.GetSchedulesOkResponse | types.GetSchedulesResponse> => {
-  return await client_fetch<types.GetSchedulesData, types.GetSchedulesResponse>(
-    `schedules`,
-    args,
-  );
-};
+): Promise<types.GetSchedulesOkResponse | types.GetSchedulesResponse> => await client_fetch<types.GetSchedulesData, types.GetSchedulesResponse>(
+  'schedules',
+  args,
+);
 
 /**
  * Returns search results for anime
  */
 export const getAnimeSearch = async (
   args: types.GetAnimeSearchData,
-): Promise<types.GetAnimeSearchOkResponse | types.GetAnimeSearchResponse> => {
-  return await client_fetch<
+): Promise<types.GetAnimeSearchOkResponse | types.GetAnimeSearchResponse> => await client_fetch<
     types.GetAnimeSearchData,
     types.GetAnimeSearchResponse
-  >(`anime`, args);
-};
+  >('anime', args);
 
 /**
  * Returns search results for manga
  */
 export const getMangaSearch = async (
   args: types.GetMangaSearchData,
-): Promise<types.GetMangaSearchOkResponse | types.GetMangaSearchResponse> => {
-  return await client_fetch<
+): Promise<types.GetMangaSearchOkResponse | types.GetMangaSearchResponse> => await client_fetch<
     types.GetMangaSearchData,
     types.GetMangaSearchResponse
-  >(`manga`, args);
-};
+  >('manga', args);
 
 /**
  * Returns search results for people
  */
 export const getPeopleSearch = async (
   args: types.GetPeopleSearchData,
-): Promise<types.GetPeopleSearchOkResponse | types.GetPeopleSearchResponse> => {
-  return await client_fetch<
+): Promise<types.GetPeopleSearchOkResponse | types.GetPeopleSearchResponse> => await client_fetch<
     types.GetPeopleSearchData,
     types.GetPeopleSearchResponse
-  >(`people`, args);
-};
+  >('people', args);
 
 /**
  * Returns search results for characters
@@ -839,71 +703,59 @@ export const getCharactersSearch = async (
   args: types.GetCharactersSearchData,
 ): Promise<
   types.GetCharactersSearchOkResponse | types.GetCharactersSearchResponse
-> => {
-  return await client_fetch<
+> => await client_fetch<
     types.GetCharactersSearchData,
     types.GetCharactersSearchResponse
-  >(`characters`, args);
-};
+  >('characters', args);
 
 /**
  * Returns search results for users
  */
 export const getUsersSearch = async (
   args: types.GetUsersSearchData,
-): Promise<types.GetUsersSearchOkResponse | types.GetUsersSearchResponse> => {
-  return await client_fetch<
+): Promise<types.GetUsersSearchOkResponse | types.GetUsersSearchResponse> => await client_fetch<
     types.GetUsersSearchData,
     types.GetUsersSearchResponse
-  >(`users`, args);
-};
+  >('users', args);
 
 /**
  * Returns username by ID search
  */
 export const getUserById = async (
   id: number,
-): Promise<types.GetUserByIdOkResponse | types.GetUserByIdResponse> => {
-  return await client_fetch<never, types.GetUserByIdResponse>(
-    `users/userbyid/${id}`,
-  );
-};
+): Promise<types.GetUserByIdOkResponse | types.GetUserByIdResponse> => await client_fetch<never, types.GetUserByIdResponse>(
+  `users/userbyid/${id}`,
+);
 
 /**
  * Returns search results for clubs
  */
 export const getClubsSearch = async (
   args: types.GetClubsSearchData,
-): Promise<types.GetClubsSearchOkResponse | types.GetClubsSearchResponse> => {
-  return await client_fetch<
+): Promise<types.GetClubsSearchOkResponse | types.GetClubsSearchResponse> => await client_fetch<
     types.GetClubsSearchData,
     types.GetClubsSearchResponse
-  >(`clubs`, args);
-};
+  >('clubs', args);
 
 /**
  * Returns producers collection
  */
 export const getProducers = async (
   args: types.GetProducersData,
-): Promise<types.GetProducersOkResponse | types.GetProducersResponse> => {
-  return await client_fetch<types.GetProducersData, types.GetProducersResponse>(
-    `producers`,
-    args,
-  );
-};
+): Promise<types.GetProducersOkResponse | types.GetProducersResponse> => await client_fetch<types.GetProducersData, types.GetProducersResponse>(
+  'producers',
+  args,
+);
 
 /**
  * Returns current seasonal anime
  */
 export const getSeasonNow = async (
   args: types.GetSeasonNowData,
-): Promise<types.GetSeasonNowOkResponse | types.GetSeasonNowResponse> => {
-  return await client_fetch<types.GetSeasonNowData, types.GetSeasonNowResponse>(
-    `seasons/now`,
-    args,
-  );
-};
+): Promise<types.GetSeasonNowOkResponse | types.GetSeasonNowResponse> => await client_fetch<types.GetSeasonNowData, types.GetSeasonNowResponse>(
+  'seasons/now',
+  args,
+);
 
 /**
  * Returns seasonal anime
@@ -912,21 +764,17 @@ export const getSeason = async (
   year: number,
   season: string,
   args: types.GetSeasonData,
-): Promise<types.GetSeasonOkResponse | types.GetSeasonResponse> => {
-  return await client_fetch<types.GetSeasonData, types.GetSeasonResponse>(
-    `seasons/${year}/${season}`,
-    args,
-  );
-};
+): Promise<types.GetSeasonOkResponse | types.GetSeasonResponse> => await client_fetch<types.GetSeasonData, types.GetSeasonResponse>(
+  `seasons/${year}/${season}`,
+  args,
+);
 
 /**
  * Returns available list of seasons
  */
 export const getSeasonsList = async (): Promise<
   types.GetSeasonsListOkResponse | types.GetSeasonsListResponse
-> => {
-  return await client_fetch<never, types.GetSeasonsListResponse>(`seasons`);
-};
+> => await client_fetch<never, types.GetSeasonsListResponse>('seasons');
 
 /**
  * Returns upcoming season&#39;s anime
@@ -935,68 +783,56 @@ export const getSeasonUpcoming = async (
   args: types.GetSeasonUpcomingData,
 ): Promise<
   types.GetSeasonUpcomingOkResponse | types.GetSeasonUpcomingResponse
-> => {
-  return await client_fetch<
+> => await client_fetch<
     types.GetSeasonUpcomingData,
     types.GetSeasonUpcomingResponse
-  >(`seasons/upcoming`, args);
-};
+  >('seasons/upcoming', args);
 
 /**
  * Returns top anime
  */
 export const getTopAnime = async (
   args: types.GetTopAnimeData,
-): Promise<types.GetTopAnimeOkResponse | types.GetTopAnimeResponse> => {
-  return await client_fetch<types.GetTopAnimeData, types.GetTopAnimeResponse>(
-    `top/anime`,
-    args,
-  );
-};
+): Promise<types.GetTopAnimeOkResponse | types.GetTopAnimeResponse> => await client_fetch<types.GetTopAnimeData, types.GetTopAnimeResponse>(
+  'top/anime',
+  args,
+);
 
 /**
  * Returns top manga
  */
 export const getTopManga = async (
   args: types.GetTopMangaData,
-): Promise<types.GetTopMangaOkResponse | types.GetTopMangaResponse> => {
-  return await client_fetch<types.GetTopMangaData, types.GetTopMangaResponse>(
-    `top/manga`,
-    args,
-  );
-};
+): Promise<types.GetTopMangaOkResponse | types.GetTopMangaResponse> => await client_fetch<types.GetTopMangaData, types.GetTopMangaResponse>(
+  'top/manga',
+  args,
+);
 
 /**
  * Returns top people
  */
 export const getTopPeople = async (): Promise<
   types.GetTopPeopleOkResponse | types.GetTopPeopleResponse
-> => {
-  return await client_fetch<never, types.GetTopPeopleResponse>(`top/people`);
-};
+> => await client_fetch<never, types.GetTopPeopleResponse>('top/people');
 
 /**
  * Returns top characters
  */
 export const getTopCharacters = async (): Promise<
   types.GetTopCharactersOkResponse | types.GetTopCharactersResponse
-> => {
-  return await client_fetch<never, types.GetTopCharactersResponse>(
-    `top/characters`,
-  );
-};
+> => await client_fetch<never, types.GetTopCharactersResponse>(
+  'top/characters',
+);
 
 /**
  * Returns top reviews
  */
 export const getTopReviews = async (
   args: types.GetTopReviewsData,
-): Promise<types.GetTopReviewsOkResponse | types.GetTopReviewsResponse> => {
-  return await client_fetch<
+): Promise<types.GetTopReviewsOkResponse | types.GetTopReviewsResponse> => await client_fetch<
     types.GetTopReviewsData,
     types.GetTopReviewsResponse
-  >(`top/reviews`, args);
-};
+  >('top/reviews', args);
 
 /**
  * Returns complete user resource data
@@ -1005,22 +841,18 @@ export const getUserFullProfile = async (
   username: string,
 ): Promise<
   types.GetUserFullProfileOkResponse | types.GetUserFullProfileResponse
-> => {
-  return await client_fetch<never, types.GetUserFullProfileResponse>(
-    `users/${username}/full`,
-  );
-};
+> => await client_fetch<never, types.GetUserFullProfileResponse>(
+  `users/${username}/full`,
+);
 
 /**
  * Returns user profile
  */
 export const getUserProfile = async (
   username: string,
-): Promise<types.GetUserProfileOkResponse | types.GetUserProfileResponse> => {
-  return await client_fetch<never, types.GetUserProfileResponse>(
-    `users/${username}`,
-  );
-};
+): Promise<types.GetUserProfileOkResponse | types.GetUserProfileResponse> => await client_fetch<never, types.GetUserProfileResponse>(
+  `users/${username}`,
+);
 
 /**
  * Returns user statistics
@@ -1029,11 +861,9 @@ export const getUserStatistics = async (
   username: string,
 ): Promise<
   types.GetUserStatisticsOkResponse | types.GetUserStatisticsResponse
-> => {
-  return await client_fetch<never, types.GetUserStatisticsResponse>(
-    `users/${username}/statistics`,
-  );
-};
+> => await client_fetch<never, types.GetUserStatisticsResponse>(
+  `users/${username}/statistics`,
+);
 
 /**
  * Returns user favorites
@@ -1042,33 +872,27 @@ export const getUserFavorites = async (
   username: string,
 ): Promise<
   types.GetUserFavoritesOkResponse | types.GetUserFavoritesResponse
-> => {
-  return await client_fetch<never, types.GetUserFavoritesResponse>(
-    `users/${username}/favorites`,
-  );
-};
+> => await client_fetch<never, types.GetUserFavoritesResponse>(
+  `users/${username}/favorites`,
+);
 
 /**
  * Returns user updates
  */
 export const getUserUpdates = async (
   username: string,
-): Promise<types.GetUserUpdatesOkResponse | types.GetUserUpdatesResponse> => {
-  return await client_fetch<never, types.GetUserUpdatesResponse>(
-    `users/${username}/userupdates`,
-  );
-};
+): Promise<types.GetUserUpdatesOkResponse | types.GetUserUpdatesResponse> => await client_fetch<never, types.GetUserUpdatesResponse>(
+  `users/${username}/userupdates`,
+);
 
 /**
  * Returns user about in raw HTML
  */
 export const getUserAbout = async (
   username: string,
-): Promise<types.GetUserAboutOkResponse | types.GetUserAboutResponse> => {
-  return await client_fetch<never, types.GetUserAboutResponse>(
-    `users/${username}/about`,
-  );
-};
+): Promise<types.GetUserAboutOkResponse | types.GetUserAboutResponse> => await client_fetch<never, types.GetUserAboutResponse>(
+  `users/${username}/about`,
+);
 
 /**
  * Returns user history (past 30 days)
@@ -1076,23 +900,19 @@ export const getUserAbout = async (
 export const getUserHistory = async (
   username: string,
   args: types.GetUserHistoryData,
-): Promise<types.GetUserHistoryOkResponse | types.GetUserHistoryResponse> => {
-  return await client_fetch<
+): Promise<types.GetUserHistoryOkResponse | types.GetUserHistoryResponse> => await client_fetch<
     types.GetUserHistoryData,
     types.GetUserHistoryResponse
   >(`users/${username}/history`, args);
-};
 
 /**
  * Returns user friends
  */
 export const getUserFriends = async (
   username: string,
-): Promise<types.GetUserFriendsOkResponse | types.GetUserFriendsResponse> => {
-  return await client_fetch<never, types.GetUserFriendsResponse>(
-    `users/${username}/friends`,
-  );
-};
+): Promise<types.GetUserFriendsOkResponse | types.GetUserFriendsResponse> => await client_fetch<never, types.GetUserFriendsResponse>(
+  `users/${username}/friends`,
+);
 
 /**
  * Returns user anime list
@@ -1102,12 +922,10 @@ export const getUserAnimelist = async (
   args: types.GetUserAnimelistData,
 ): Promise<
   types.GetUserAnimelistOkResponse | types.GetUserAnimelistResponse
-> => {
-  return await client_fetch<
+> => await client_fetch<
     types.GetUserAnimelistData,
     types.GetUserAnimelistResponse
   >(`users/${username}/animelist`, args);
-};
 
 /**
  * Returns user manga list
@@ -1117,23 +935,19 @@ export const getUserMangaList = async (
   args: types.GetUserMangaListData,
 ): Promise<
   types.GetUserMangaListOkResponse | types.GetUserMangaListResponse
-> => {
-  return await client_fetch<
+> => await client_fetch<
     types.GetUserMangaListData,
     types.GetUserMangaListResponse
   >(`users/${username}/mangalist`, args);
-};
 
 /**
  * Returns user reviews
  */
 export const getUserReviews = async (
   username: string,
-): Promise<types.GetUserReviewsOkResponse | types.GetUserReviewsResponse> => {
-  return await client_fetch<never, types.GetUserReviewsResponse>(
-    `users/${username}/reviews`,
-  );
-};
+): Promise<types.GetUserReviewsOkResponse | types.GetUserReviewsResponse> => await client_fetch<never, types.GetUserReviewsResponse>(
+  `users/${username}/reviews`,
+);
 
 /**
  * Returns Recent Anime Recommendations
@@ -1142,44 +956,36 @@ export const getUserRecommendations = async (
   username: string,
 ): Promise<
   types.GetUserRecommendationsOkResponse | types.GetUserRecommendationsResponse
-> => {
-  return await client_fetch<never, types.GetUserRecommendationsResponse>(
-    `users/${username}/recommendations`,
-  );
-};
+> => await client_fetch<never, types.GetUserRecommendationsResponse>(
+  `users/${username}/recommendations`,
+);
 
 /**
  * Returns user clubs
  */
 export const getUserClubs = async (
   username: string,
-): Promise<types.GetUserClubsOkResponse | types.GetUserClubsResponse> => {
-  return await client_fetch<never, types.GetUserClubsResponse>(
-    `users/${username}/clubs`,
-  );
-};
+): Promise<types.GetUserClubsOkResponse | types.GetUserClubsResponse> => await client_fetch<never, types.GetUserClubsResponse>(
+  `users/${username}/clubs`,
+);
 
 /**
  * Returns user&#39;s external links
  */
 export const getUserExternal = async (
   username: string,
-): Promise<types.GetUserExternalOkResponse | types.GetUserExternalResponse> => {
-  return await client_fetch<never, types.GetUserExternalResponse>(
-    `users/${username}/external`,
-  );
-};
+): Promise<types.GetUserExternalOkResponse | types.GetUserExternalResponse> => await client_fetch<never, types.GetUserExternalResponse>(
+  `users/${username}/external`,
+);
 
 /**
  * Returns Recently Added Episodes
  */
 export const getWatchRecentEpisodes = async (): Promise<
   types.GetWatchRecentEpisodesOkResponse | types.GetWatchRecentEpisodesResponse
-> => {
-  return await client_fetch<never, types.GetWatchRecentEpisodesResponse>(
-    `watch/episodes`,
-  );
-};
+> => await client_fetch<never, types.GetWatchRecentEpisodesResponse>(
+  'watch/episodes',
+);
 
 /**
  * Returns Popular Episodes
@@ -1187,30 +993,24 @@ export const getWatchRecentEpisodes = async (): Promise<
 export const getWatchPopularEpisodes = async (): Promise<
   | types.GetWatchPopularEpisodesOkResponse
   | types.GetWatchPopularEpisodesResponse
-> => {
-  return await client_fetch<never, types.GetWatchPopularEpisodesResponse>(
-    `watch/episodes/popular`,
-  );
-};
+> => await client_fetch<never, types.GetWatchPopularEpisodesResponse>(
+  'watch/episodes/popular',
+);
 
 /**
  * Returns Recently Added Promotional Videos
  */
 export const getWatchRecentPromos = async (): Promise<
   types.GetWatchRecentPromosOkResponse | types.GetWatchRecentPromosResponse
-> => {
-  return await client_fetch<never, types.GetWatchRecentPromosResponse>(
-    `watch/promos`,
-  );
-};
+> => await client_fetch<never, types.GetWatchRecentPromosResponse>(
+  'watch/promos',
+);
 
 /**
  * Returns Popular Promotional Videos
  */
 export const getWatchPopularPromos = async (): Promise<
   types.GetWatchPopularPromosOkResponse | types.GetWatchPopularPromosResponse
-> => {
-  return await client_fetch<never, types.GetWatchPopularPromosResponse>(
-    `watch/promos/popular`,
-  );
-};
+> => await client_fetch<never, types.GetWatchPopularPromosResponse>(
+  'watch/promos/popular',
+);
