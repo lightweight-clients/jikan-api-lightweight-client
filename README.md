@@ -80,3 +80,19 @@ The schema for the Jikan API is available in the
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 Types are generated from [Jikan API](https://docs.api.jikan.moe/) documentation.
 by [@hey-api/openapi-ts](https://github.com/hey-api/openapi-ts).
+
+## Tests
+
+Tests run against a local [MockServer](https://www.mock-server.com/) instance, so they never
+depend on the public Jikan API. `npm test` starts and removes the container automatically.
+It uses Podman by default locally; GitHub Actions sets `MOCKSERVER_RUNTIME=docker`.
+
+```bash
+npm test
+npm run mockserver:up
+npm run mockserver:down
+```
+
+Mock responses are committed in `tests/mockserver/mockserverInitialization.json`. Refresh them
+manually and commit the reviewed changes when an API-shape update is needed; normal tests never
+contact Jikan.

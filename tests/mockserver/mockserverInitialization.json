@@ -1,0 +1,5 @@
+[
+  {"httpRequest":{"method":"GET","path":"/v4/reviews/anime"},"httpResponse":{"statusCode":200,"headers":{"content-type":["application/json"]},"body":"{\"data\":[{\"mal_id\":5114}]}"}},
+  {"httpRequest":{"method":"GET","path":"/v4/anime/1"},"httpResponse":{"statusCode":200,"headers":{"content-type":["application/json"]},"body":"{\"data\":{\"mal_id\":1,\"titles\":[{\"type\":\"Default\",\"title\":\"Cowboy Bebop\"}]}}"}},
+  {"httpRequest":{"method":"GET","path":"/v4/genres/anime","queryStringParameters":{"filter":["genres"]}},"httpResponse":{"statusCode":200,"headers":{"content-type":["application/json"]},"body":"{\"data\":[{\"mal_id\":1,\"type\":\"anime\",\"name\":\"Action\"}]}"}}
+]

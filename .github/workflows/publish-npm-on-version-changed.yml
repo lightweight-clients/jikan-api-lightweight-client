@@ -13,6 +13,8 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      MOCKSERVER_RUNTIME: docker
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6

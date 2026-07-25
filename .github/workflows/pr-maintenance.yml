@@ -14,6 +14,8 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
+    env:
+      MOCKSERVER_RUNTIME: docker
     steps:
       - uses: actions/checkout@v6
       - run: npm ci
