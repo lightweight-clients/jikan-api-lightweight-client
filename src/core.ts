@@ -26,14 +26,12 @@ const createUrl = (
  *
  * @returns A promise that resolves to the output data from the API call, parsed as JSON.
  */
-export let client_fetch = async <In, Out>(
+export let client_fetch = <In, Out>(
   path: string,
   args?: In & Record<string, string | number | boolean>,
 ): Promise<Out> => {
   const url = createUrl(path, args);
-  const response = await fetch(url);
-
-  return (await response.json()) as unknown as Out;
+  return fetch(url).then((response) => response.json() as unknown as Out);
 };
 
 /**
